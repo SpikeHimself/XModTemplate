@@ -1,45 +1,38 @@
-﻿---
+---
 name: Bug report
-about: Create a report to help XModTemplate improve
+about: Create a report to help us improve
 title: ''
-labels: bug
+labels: ''
 assignees: ''
 
 ---
 
 **Describe the bug**
-Write a clear and concise description of what's going wrong.
+A clear and concise description of what the bug is.
 
 **To Reproduce**
-Explain the steps needed to reproduce the behaviour.
+Steps to reproduce the behavior:
+1. Go to '...'
+2. Click on '....'
+3. Scroll down to '....'
+4. See error
 
-**Expected behaviour**
-Describe what you expected to happen (if it's not obvious).
+**Expected behavior**
+A clear and concise description of what you expected to happen.
 
-**LogOutput file(s)**
-Please have `Debug` output enabled. Attach the file called `LogOutput.log` which can be found in the directory `Valheim\BepInEx\`.
-If you play on a server, include the server's `LogOutput.log` as well.
-
-**Version**
-Which version of XModTemplate are you experiencing your problem with?
-
-**Environment**
-Choose from the following options where you are experiencing the problem (leave only the ones you know about):
-* Dedicated server
-* Multiplayer Host (my game is the server)
-* Multiplayer Client (I joined another server/host)
-* Singleplayer
-
-**Other mods**
-Do you experience the issue also when you do not have any other mods installed? Please provide the full list of mods that you are using.
-
-**Priority**
-Estimate how important this problem is. Choose Medium if you don't know.
-* Critical (my world is suffering permanent damage from XModTemplate)
-* High (XModTemplate does not work at all anymore)
-* Medium (XModTemplate kind of still works, but it's not pleasant to use)
-* Low (XModTemplate is still working fine, but sometimes a thing goes wrong)
-
-**Additional information**
-Add any addtional information here. Anything that you think might help is appreciated.
+**Screenshots**
 If applicable, add screenshots to help explain your problem.
+
+**Desktop (please complete the following information):**
+ - OS: [e.g. iOS]
+ - Browser [e.g. chrome, safari]
+ - Version [e.g. 22]
+
+**Smartphone (please complete the following information):**
+ - Device: [e.g. iPhone6]
+ - OS: [e.g. iOS8.1]
+ - Browser [e.g. stock browser, safari]
+ - Version [e.g. 22]
+
+**Additional context**
+Add any other context about the problem here.
