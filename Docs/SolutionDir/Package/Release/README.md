@@ -2,7 +2,7 @@
 
 XModTemplate serves as a template for new mods. It does nothing.
 
-This README was generated using T4 Text Templating, and will contain invalid URLs until someone uses XModTemplate and updates the information in `ModInfo.cs`.
+This README was generated using T4 Text Templating, and will contain invalid URLs until someone uses XModTemplate and updates the information in `XModTemplate\ModInfo.cs`.
 
 # Features
 
