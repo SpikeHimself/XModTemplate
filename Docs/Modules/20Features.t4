@@ -1,0 +1,11 @@
+<#= mf.Heading("Features") #>
+
+<#= mf.Heading("Nothing", size: HeadingSize.Small) #>
+
+This mod does nothing. It exists only to make life easy.
+
+<#= mf.Heading("Copy me", size: HeadingSize.Small) #>
+
+You can clone this mod and rename it. Just don't forget to find all occurances of "XModTemplate" and change them.
+
+Pro tip: Open the project in Visual Studio, right-click the namespace in one of the code files, and choose `Rename`. You'll still have to rename some files, though!

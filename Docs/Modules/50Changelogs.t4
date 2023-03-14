@@ -1,0 +1,14 @@
+<#= mf.Heading("Changelogs") #>
+
+* **v1.0.0** (2023-03-13)
+
+	* Initial release of <#= thisModName #>
+
+<details>
+<summary>Click to view previous versions</summary>
+
+* **v0.0.0** (1970-01-01)
+
+	* This version never existed. This entry only exists for demonstration purposes.
+
+</details>
