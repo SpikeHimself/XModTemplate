@@ -1,4 +1,4 @@
-﻿<#@ include file="$(ProjectDir)\_Header.t4" once="true" #>
+<#@ include file="$(ProjectDir)\_Header.t4" once="true" #>
 <#@ output extension=".md" #>
 ---
 name: Feature request
