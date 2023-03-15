@@ -54,6 +54,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GitHub.Release.tt</DependentUpon>
     </None>
+    <None Include="Modules\51Changelog-current.t4" />
+    <None Include="Modules\52Changelogs-previous.t4" />
     <None Include="SolutionDir\.github\ISSUE_TEMPLATE\bug_report.md">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -63,6 +65,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>feature_request.tt</DependentUpon>
+    </None>
+    <None Include="SolutionDir\Package\Release\CHANGELOG.md">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CHANGELOG.tt</DependentUpon>
     </None>
     <None Include="SolutionDir\Package\Release\manifest.json">
       <AutoGen>True</AutoGen>
@@ -139,10 +146,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="GitHub.Release.tt">
+    <None Include="GitHub.Release.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>GitHub.Release.md</LastGenOutput>
-    </Content>
+    </None>
+    <None Include="SolutionDir\Package\Release\CHANGELOG.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CHANGELOG.md</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
