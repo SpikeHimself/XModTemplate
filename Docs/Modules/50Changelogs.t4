@@ -1,14 +1,4 @@
-<#= mf.Heading("Changelogs") #>
+<#= mf.Heading($"v{thisModVersion} ({today})", size: HeadingSize.Small) #>
 
-* **v1.0.0** (2023-03-13)
-
-	* Initial release of <#= thisModName #>
-
-<details>
-<summary>Click to view previous versions</summary>
-
-* **v0.0.0** (1970-01-01)
-
-	* This version never existed. This entry only exists for demonstration purposes.
-
-</details>
+<#@ include file="$(ProjectDir)\Modules\51Changelog-current.t4" once="true" #>
+<#@ include file="$(ProjectDir)\Modules\52Changelogs-previous.t4" once="true" #>

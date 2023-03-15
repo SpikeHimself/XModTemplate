@@ -49,6 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="GitHub.Release.md">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GitHub.Release.tt</DependentUpon>
+    </None>
     <None Include="SolutionDir\.github\ISSUE_TEMPLATE\bug_report.md">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -133,6 +138,11 @@
       <LastGenOutput>feature_request.md</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="GitHub.Release.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GitHub.Release.md</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

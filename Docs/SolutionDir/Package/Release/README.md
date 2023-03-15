@@ -32,22 +32,6 @@ I very strongly recommend using a mod manager such as [Vortex](https://www.nexus
 
 
 
-# Changelogs
-
-* **v1.0.0** (2023-03-13)
-
-	* Initial release of XModTemplate
-
-<details>
-<summary>Click to view previous versions</summary>
-
-* **v0.0.0** (1970-01-01)
-
-	* This version never existed. This entry only exists for demonstration purposes.
-
-</details>
-
-
 # Bugs and Feature Requests
 
 To report a bug, please navigate to the [Issues page](https://github.com/SpikeHimself/XModTemplate/issues), click [New issue](https://github.com/SpikeHimself/XModTemplate/issues/new/choose), choose `Bug report`, and fill out the template.

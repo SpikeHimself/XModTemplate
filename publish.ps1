@@ -93,13 +93,9 @@ if($Target.Equals("Release"))
     Copy-Item -Path "$DocsPath\SolutionDir\*" -Destination "$SolutionPath\" -Exclude @("*.tt") -Recurse -Force
 
     Write-Host "Packaging for ThunderStore..."
-    $PackagePath = New-Item -Type Directory -Path "$SolutionPath\Package\Release" -Force
     $PackagePluginPath = New-Item -Type Directory -Path "$PackagePath\plugins\$name" -Force
-
     Copy-Item -Path "$TargetPath\$TargetAssembly" -Destination "$PackagePluginPath\" -Force
     #Copy-Item -Path "$PrePackagePath\Translations" -Destination "$PackagePluginPath\" -Recurse -Force
-    #Copy-Item -Path "$DocsPath\README.Thunderstore.md" -Destination "$PackagePath\README.md" -Force
-    #Copy-Item -Path "$DocsPath\manifest.json" -Destination "$PackagePath\" -Force
     Copy-Item -Path "$SolutionPath\Images\icon.png" -Destination "$PackagePath\" -Force
     
     $CompressedOutputFilename = "$ReleasePath\$name-new.zip"
