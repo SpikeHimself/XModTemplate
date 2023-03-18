@@ -35,4 +35,5 @@
 	var linkBepInEx = mf.Link("BepInEx", "https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/");
 	var linkVortex = mf.Link("Vortex", "https://www.nexusmods.com/site/mods/1");
 	var linkR2modman = mf.Link("r2modman", "https://valheim.thunderstore.io/package/ebkr/r2modman/");
+	var linkJotunnModStub = mf.Link("JotunnModStub", "https://github.com/Valheim-Modding/JotunnModStub");
 #>

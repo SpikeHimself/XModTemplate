@@ -1,11 +1,83 @@
 <#= mf.Heading("Features") #>
 
-<#= mf.Heading("Nothing", size: HeadingSize.Small) #>
+This mod is a template for other mod makers. By itself, it does nothing. It exists only to make life easy.
 
-This mod does nothing. It exists only to make life easy.
+<#= mf.Heading("Copy me", size: HeadingSize.Medium) #>
 
-<#= mf.Heading("Copy me", size: HeadingSize.Small) #>
-
-You can clone this mod and rename it. Just don't forget to find all occurances of "XModTemplate" and change them.
+You can use the <#= mf.Link("GitHub template function", "https://github.com/SpikeHimself/XModTemplate/generate") #> to create your own mod based on <#= thisModName #>, and then rename the project files and namespaces.
+Make sure you find all occurances of "<#= thisModName #>" and change them to your own mod's name!
 
 Pro tip: Open the project in Visual Studio, right-click the namespace in one of the code files, and choose `Rename`. You'll still have to rename some files, though!
+
+<#= mf.Heading("Project overview") #>
+
+The <#= thisModName #> project contains some nifty tricks which should help you save some time and effort. I'll try to explain them in detail below;
+
+<#= mf.Heading("Jotunn core", size: HeadingSize.Medium) #>
+
+<#= thisModName #> is based on the <#= linkJotunnModStub #> and much (but not all) of the documentation found here is a near one-to-one copy of that.
+I strongly advise familiarising yourself with what Jotunn is and what it is capable of. You should read <#= linkJotunnModStub #>'s documentation to get a grasp of how it is set up, but remember that <#= thisModName #> does vary from it slightly.
+
+<#= linkJotunnModStub #> comes with a file called <#= mf.Code("DoPrebuild.props") #>. This file contains a configuration option titled <#= mf.Code("ExecutePrebuild") #>. If you set this to <#= mf.Code("true") #>, Jotunn will automatically generate publicised versions of the game DLLs for you, whenever they need updating.
+<#= thisModName #> has this value set to  <#= mf.Code("true") #> by default.
+
+<#= thisModName #> inherits some NuGet packages from <#= linkJotunnModStub #>. After you open the project for the first time, Visual Studio will alert you to the fact that some of these packages are missing. This is normal, as the packages themselves aren't included in <#= thisModName #>'s GitHub repo. Just click "Restore", and then restart Visual Studio when it has finished.
+
+<#= mf.Heading("The path to Valheim", size: HeadingSize.Medium) #>
+
+The following file can not be included in the GitHub repo, as it can contain information that is unique to the computer the project is being developed on.
+
+You need to create this file manually in your Solution directory (where your .sln file lives). This file should be named <#= mf.Code("Environment.props") #>.
+
+<#
+var environmentPropsText= @"<?xml version=""1.0"" encoding=""utf-8""?>
+<Project ToolsVersion=""Current"" xmlns=""http://schemas.microsoft.com/developer/msbuild/2003"">
+  <PropertyGroup>
+    <!-- Valheim install folder. This is normally found automatically, uncomment to overwrite it. Needs to be your path to the base Valheim folder. -->
+    <!-- <VALHEIM_INSTALL>X:\PathToYourSteamLibary\steamapps\common\Valheim</VALHEIM_INSTALL> -->
+
+    <!-- This is the folder where your build gets copied to when using the post-build automations -->
+    <MOD_DEPLOYPATH>$(VALHEIM_INSTALL)\BepInEx\plugins</MOD_DEPLOYPATH>
+  </PropertyGroup>
+</Project>";
+#>
+<#= mf.Code(environmentPropsText, mode: CodeMode.Block) #>
+
+In a typical setup, Jotunn will find the correct path for <#= mf.Code("VALHEIM_INSTALL") #> itself, but in case it fails, you can correct it in this file.
+
+The <#= mf.Code("MOD_DEPLOYPATH") #> that this file defines is the location where the post-build automation script will copy your mod to when debugging.
+
+
+<#= mf.Heading("Build automation", size: HeadingSize.Medium) #>
+
+Included in <#= thisModName #> is a file called <#= mf.Code("publish.ps1") #>. This is the post-build automation <#= mf.Link("PowerShell", "https://learn.microsoft.com/en-us/powershell/") #> script which will be executed automatically every time you build your project.
+
+Inside your <#= mf.Code($"{thisModName}\\{thisModName}.csproj") #> file, you can find a <#= mf.Link("Target element", "https://learn.microsoft.com/en-us/visualstudio/msbuild/target-element-msbuild?view=vs-2022") #> called <#= mf.Code("JotunnPostBuildTaskWin") #>. This is where the script is called and supplied with all the parameters that it needs.
+
+Depending on the configuration you have chosen in Visual Studio, the script does one of two things:
+
+<#= mf.Heading("Debug", size: HeadingSize.Small) #>
+
+<#= 
+mf.List(ListBullets.Number, items: new string[] {
+    $"Generate a .mdb file from your .pdb file using {mf.Code("libraries\\Debug\\pdb2mdb.exe")}",
+    $"Copy your .dll, .pdb and .mdb to the location defined by {mf.Code("MOD_DEPLOYPATH")} in {mf.Code("Environment.props")}",
+    $"Copy those same files also to the {mf.Code("Package\\Debug")} directory",
+    $"Generate a debug-release file at {mf.Code("Release\\" + thisModName + "-debug-new.zip")} using the contents of {mf.Code("Package\\Debug")}"
+})
+#>
+
+<#= mf.Heading("Release", size: HeadingSize.Small) #>
+
+<#= 
+mf.List(ListBullets.Number, items: new string[] {
+    $"Copy all files (except generation templates) from {mf.Code(thisModName + "\\SolutionDir")} to the Solution directory. This includes the GitHub readme and issue templates as well as the Thunderstore documentation files.",
+    $"Copy your .dll to {mf.Code($"Package\\Release\\plugin\\{thisModName}\\")}",
+    $"Copy the Thunderstore icon at {mf.Code("Images\\icon.png")} to {mf.Code($"Package\\Release\\")}",
+    $"Generate a release file at {mf.Code("Release\\" + thisModName + "-new.zip")}"
+})
+#>
+
+<#= mf.Heading("Documentation templates", size: HeadingSize.Medium) #>
+
+Coming soon..
