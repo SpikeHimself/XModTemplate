@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using Jotunn.Managers;
 using Jotunn.Utils;
 using XModTemplate.RPC;
 
@@ -24,6 +25,9 @@ namespace XModTemplate
 
             // Apply the Harmony patches
             Patches.Patcher.Patch();
+
+            // Subscribe to Jotunn's OnVanillaMapDataLoaded event
+            MinimapManager.OnVanillaMapDataLoaded += MinimapManager_OnVanillaMapDataLoaded;
         }
 
         /// <summary>
@@ -48,9 +52,21 @@ namespace XModTemplate
         public static void GameStarted()
         {
             RPCManager.Register();
+        }
+        #endregion
 
-            Jotunn.Logger.LogInfo("The game has started, sending an ExampleRequest to the server..");
-            SendToServer.ExampleRequest("The game started, please do a thing");
+        #region Jotunn events
+        /// <summary>
+        /// Event that gets fired once data for a specific Map for a world has been loaded.
+        /// https://valheim-modding.github.io/Jotunn/tutorials/events.html
+        /// </summary>
+        private static void MinimapManager_OnVanillaMapDataLoaded()
+        {
+            Jotunn.Logger.LogInfo("The game has fully loaded; sending an ExampleRequest to the server..");
+
+            var myId = ZDOMan.instance.GetMyID();
+            var myName = Game.instance.GetPlayerProfile().GetName();
+            SendToServer.ExampleRequest($"{myName} ({myId}) has joined the game, please do a thing");
         }
         #endregion
 
@@ -79,6 +95,5 @@ namespace XModTemplate
             Jotunn.Logger.LogInfo("The server granted our request!");
         }
         #endregion
-
     }
 }
