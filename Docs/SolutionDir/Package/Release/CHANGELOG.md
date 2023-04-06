@@ -1,4 +1,4 @@
-#### v1.0.0 (2023-03-18)
+#### v1.0.0 (2023-04-06)
 
 * Initial release of XModTemplate
 
