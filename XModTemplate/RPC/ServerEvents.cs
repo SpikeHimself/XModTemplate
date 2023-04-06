@@ -21,12 +21,12 @@
             if (answer)
             {
                 Jotunn.Logger.LogDebug(" ..and it's been granted!");
-                SendToClient.RequestGranted(sender, request);
+                SendToClient.ExampleRequestGranted(sender, request);
             }
             else
             {
                 Jotunn.Logger.LogDebug(" ..but it's been denied :(");
-                SendToClient.RequestDenied(sender, request, "Not this time.");
+                SendToClient.ExampleRequestDenied(sender, request, "Not this time.");
             }
         }
     }
